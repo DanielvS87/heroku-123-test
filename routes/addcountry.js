@@ -10,7 +10,8 @@ router.post('/addcountry', (req,res,next)=>{
 })
 
 router.get('/getcountries', (req,res,next)=>{
-    Country.find().exec().then(response => res.send(response))
+    // Country.find().exec().then(response => res.send(response))
+    res.send('country page')
 })
 
 router.get('/', (req,res,next)=>{
