@@ -13,4 +13,8 @@ router.get('/getcountries', (req,res,next)=>{
     Country.find().exec().then(response => res.send(response))
 })
 
+router.get('/', (req,res,next)=>{
+    res.send('Hello World')
+})
+
 module.exports = router;
