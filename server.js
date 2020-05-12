@@ -8,16 +8,15 @@ const countryRouter = require('./routes/addcountry')
 
 const app = express()
 
+mongoose.connect(process.env.MONGO_DB, { useNewUrlParser: true, useUnifiedTopology: true }, ()=>{
+    console.log('Connected to Mongo DB')
+})
+
 app.use(cors())
 app.use(express.urlencoded({extended: true}))
 app.use(express.json())
 
 app.use('/', countryRouter);
-
-
-mongoose.connect(process.env.MONGO_DB, { useNewUrlParser: true, useUnifiedTopology: true }, ()=>{
-    console.log('Connected to Mongo DB')
-})
 
 if(process.env.NODE_ENV === 'production'){
     app.use(express.static('client/build'))
