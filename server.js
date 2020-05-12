@@ -20,7 +20,7 @@ mongoose.connect(process.env.MONGO_DB, { useNewUrlParser: true, useUnifiedTopolo
 })
 
 if(process.env.NODE_ENV === 'production'){
-    app.use(express.static('../client/build'))
+    app.use(express.static('client/build'))
 }
 
 app.listen(process.env.PORT || 3003, ()=>console.log('Up and Running'))
